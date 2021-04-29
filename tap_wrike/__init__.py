@@ -3,11 +3,12 @@ import os
 import backoff
 import requests
 import singer
-from datetime import datetime
 from singer import Transformer, utils
 from singer.catalog import Catalog, CatalogEntry
 from singer.schema import Schema
-
+import csv
+import codecs
+from datetime import datetime
 
 LOGGER = singer.get_logger()
 SESSION = requests.Session()
@@ -47,13 +48,20 @@ def get_url(endpoint):
 
 @backoff.on_exception(backoff.expo, requests.exceptions.RequestException, max_tries=5, giveup=lambda e: e.response is not None and 400 <= e.response.status_code < 500, factor=2)
 @utils.ratelimit(100, 15)
-def request(url, params=None):
+def request(url, params=None, as_csv=False):
     params = params or {}
     access_token = get_access_token()
     headers = {
         "Accept": "application/json",
         "Authorization": "Bearer " + access_token
     }
+
+    if as_csv:
+        download = requests.get(url, headers=headers)
+        csv_reader = csv.DictReader(codecs.iterdecode(download.content.splitlines(), 'utf-8'))
+
+        return csv_reader
+
     req = requests.Request("GET", url=url, params=params, headers=headers).prepare()
     LOGGER.info("GET {}".format(req.url))
     resp = SESSION.send(req)
@@ -62,18 +70,21 @@ def request(url, params=None):
     return resp.json()
 
 
-def sync_endpoint(schema_name):
-    """ Sync endpoint data """
+def sync_csv_data(schema_name):
+    url = get_url('data_export')
+    response = request(url)
+    resources = response['data'][0]['resources']
+    item = list(filter(lambda resource: resource['name'] == schema_name, resources))
+    item_csv_url = item[0]['url']
+
     schema = load_schema(schema_name)
     singer.write_schema(schema_name, schema, ["id"])
 
+    reader = request(item_csv_url, as_csv=True)
     with Transformer() as transformer:
-        url = get_url(schema_name)
-        response = request(url)
-        data = response['data']
         time_extracted = utils.now()
 
-        for row in data:
+        for row in reader:
             item = transformer.transform(row, schema)
             singer.write_record(schema_name, item, time_extracted=time_extracted)
 
@@ -82,7 +93,7 @@ def sync(catalog):
     """ Sync data from tap source """
     for stream in catalog.get_selected_streams(STATE):
         LOGGER.info("Syncing stream: " + stream.tap_stream_id)
-        sync_endpoint(stream.tap_stream_id)
+        sync_csv_data(stream.tap_stream_id)
         singer.write_state({"last_updated_at": str(datetime.now().isoformat()), "stream": stream.tap_stream_id})
     return
 

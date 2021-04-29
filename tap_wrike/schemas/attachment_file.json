@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "attachment_file_id": {
+      "type": ["null", "integer"]
+    },
+    "attachment_file_api_id": {
+      "type": ["null", "string"]
+    },
+    "attachment_file_content_height": {
+      "type": ["null", "integer"]
+    },
+     "attachment_file_content_width": {
+      "type": ["null", "string"]
+    }
+  }
+}
