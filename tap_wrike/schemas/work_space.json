@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "work_id": {
+       "type": "integer"
+    },
+    "access_type": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "work_id": {
+       "type": "integer"
+    },
+    "project_health_status": {
+      "type": "string"
+    },
+    "project_planned_due_date": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "project_planned_start_date": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "when_project_created": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "workflow_stage_id": {
+      "type": ["null", "integer"]
+    },
+    "billing_type_id": {
+      "type": ["null", "integer"]
+    }
+  }
+}

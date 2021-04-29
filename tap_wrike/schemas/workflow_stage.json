@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "workflow_stage_id": {
+      "type": "integer"
+    },
+    "when_added": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "when_removed": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "workflow_id": {
+      "type": "integer"
+    },
+    "workflow_stage_color": {
+      "type": "string"
+    },
+    "workflow_stage_group": {
+      "type": "string"
+    },
+    "workflow_stage_name": {
+      "type": "string"
+    },
+    "workflow_stage_order": {
+      "type": "integer"
+    }
+  }
+}

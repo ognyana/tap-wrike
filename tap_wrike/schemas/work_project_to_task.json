@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "depth_level": {
+       "type": "integer"
+    },
+    "work_project_id": {
+      "type": "integer"
+    },
+    "work_task_id": {
+     "type": "integer"
+    }
+  }
+}

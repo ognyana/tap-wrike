@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "work_id": {
+      "type": "integer"
+    },
+    "effort": {
+      "type": ["null", "integer"]
+    },
+    "effort_mode": {
+     "type": ["null", "string"]
+    },
+    "recurrence_id": {
+     "type": ["null", "integer"]
+    },
+    "task_completed_date": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "task_duration_days": {
+      "type": ["null", "number"]
+    },
+    "task_importance": {
+      "type": "string"
+    },
+    "task_planned_due_date": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "task_planned_start_date": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "task_planning_type": {
+      "type": "string"
+    },
+    "task_workflow_stage_group": {
+      "type": "string"
+    },
+    "workflow_stage_id": {
+      "type": "integer"
+    },
+    "billing_type_id": {
+      "type": ["null", "integer"]
+    }
+  }
+}

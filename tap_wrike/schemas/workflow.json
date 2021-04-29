@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "workflow_id": {
+      "type": "integer"
+    },
+    "is_strict_workflow": {
+      "type": "boolean"
+    },
+    "when_added": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "when_removed": {
+      "type": ["null", "string"],
+      "format": "datetime"
+    },
+    "workflow_name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "work_timelog_id": {
+       "type": "integer"
+    },
+    "timelog_category_id": {
+      "type": ["null", "integer"]
+    },
+    "timelog_datetime": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "timelog_minutes": {
+      "type": "integer"
+    },
+    "user_id": {
+      "type": "integer"
+    },
+    "when_added": {
+      "type": "string",
+      "format": "datetime"
+    },
+     "work_id": {
+      "type": "integer"
+    }
+  }
+}

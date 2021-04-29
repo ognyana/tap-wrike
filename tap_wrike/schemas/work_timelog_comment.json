@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "work_timelog_id": {
+       "type": "integer"
+    },
+    "timelog_comment_text": {
+      "type": ["null", "string"]
+    }
+  }
+}

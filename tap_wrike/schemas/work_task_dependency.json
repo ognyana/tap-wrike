@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "dependency_type": {
+       "type": "string"
+    },
+    "predecessor_task_work_id": {
+      "type": "integer"
+    },
+    "successor_task_work_id": {
+      "type": "integer"
+    },
+    "user_id": {
+      "type": "integer"
+    },
+    "when_added": {
+      "type": "string",
+      "format": "datetime"
+    }
+  }
+}
