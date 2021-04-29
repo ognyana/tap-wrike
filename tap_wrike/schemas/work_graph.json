@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "nested_work_id": {
+       "type": "integer"
+    },
+    "when_added": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "work_id": {
+      "type": "integer"
+    }
+  }
+}

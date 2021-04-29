@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "change_datetime": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "custom_field_id": {
+      "type": "integer"
+    },
+    "new_custom_field_value": {
+      "type": ["null", "string"]
+    },
+    "old_custom_field_value": {
+      "type": ["null", "string"]
+    },
+    "user_resource_id": {
+      "type": "integer"
+    },
+    "work_id": {
+      "type": "integer"
+    }
+  }
+}

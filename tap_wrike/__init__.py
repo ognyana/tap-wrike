@@ -46,8 +46,13 @@ def get_url(endpoint):
     return BASE_API_URL + endpoint
 
 
-@backoff.on_exception(backoff.expo, requests.exceptions.RequestException, max_tries=5, giveup=lambda e: e.response is not None and 400 <= e.response.status_code < 500, factor=2)
-@utils.ratelimit(100, 15)
+@backoff.on_exception(
+    backoff.expo,
+    requests.exceptions.RequestException,
+    max_tries=5,
+    giveup=lambda e: e.response is not None and 400 <= e.response.status_code < 500,
+    factor=2
+)
 def request(url, params=None, as_csv=False):
     params = params or {}
     access_token = get_access_token()
@@ -58,6 +63,7 @@ def request(url, params=None, as_csv=False):
 
     if as_csv:
         download = requests.get(url, headers=headers)
+        LOGGER.info("GET {}".format(url))
         csv_reader = csv.DictReader(codecs.iterdecode(download.content.splitlines(), 'utf-8'))
 
         return csv_reader
@@ -71,6 +77,7 @@ def request(url, params=None, as_csv=False):
 
 
 def sync_csv_data(schema_name):
+    """ Sync data from csv """
     url = get_url('data_export')
     response = request(url)
     resources = response['data'][0]['resources']
@@ -141,6 +148,7 @@ def main():
             catalog = args.catalog
         else:
             catalog = discover()
+
         sync(catalog)
 
 

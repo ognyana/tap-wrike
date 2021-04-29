@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "work_id": {
+       "type": "integer"
+    },
+    "folder_default_workflow_stage_id": {
+      "type":  ["null", "integer"]
+    },
+    "workflow_id": {
+      "type": ["null", "integer"]
+    }
+  }
+}
