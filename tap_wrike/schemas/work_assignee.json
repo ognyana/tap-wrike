@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": ["null", "integer"]
+      },
+      "when_added": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "work_id": {
+        "type": ["null", "integer"]
+      }      
+    }
+  }
+  

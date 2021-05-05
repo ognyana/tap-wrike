@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+      "attachment_file_id": {
+        "type": ["null", "integer"]
+      },
+      "attachment_version": {
+        "type": ["null", "integer"]
+      },
+      "user_id": {
+        "type": ["null", "integer"]
+      },
+      "when_added": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "work_attachment_id": {
+        "type": ["null", "integer"]
+      },
+      "work_comment_id": {
+        "type": ["null", "integer"]
+      }
+    }
+  }
+  

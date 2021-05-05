@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+      "custom_field_id": {
+        "type": ["null", "integer"]
+      },
+      "custom_field_name": {
+        "type": ["null", "string"]
+      },
+      "custom_field_type": {
+        "type": ["null", "string"]
+      },
+      "when_added": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "when_removed": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      }
+    }
+  }
+  

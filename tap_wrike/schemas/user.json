@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": ["null", "integer"]
+      },
+      "email_address": {
+        "type": ["null", "string"]
+      },
+      "is_deactivated": {
+        "type": ["null", "boolean"]
+      },
+      "user_company": {
+        "type": ["null", "string"]
+      },
+      "user_department": {
+        "type": ["null", "string"]
+      },
+      "user_first_name": {
+        "type": ["null", "string"]
+      },
+      "user_full_name": {
+        "type": ["null", "string"]
+      },
+      "user_job_title": {
+        "type": ["null", "string"]
+      },
+      "user_last_name": {
+        "type": ["null", "string"]
+      },
+      "user_phone": {
+        "type": ["null", "string"]
+      },
+      "user_role": {
+        "type": ["null", "string"]
+      },
+      "when_added": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "when_removed": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      }
+    }
+  }
+  

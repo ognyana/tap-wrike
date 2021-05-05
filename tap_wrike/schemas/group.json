@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+      "group_id": {
+        "type": ["null", "integer"]
+      },
+      "group_name": {
+        "type": ["null", "string"]
+      },
+      "when_added": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "when_removed": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      }
+    }
+  }
+  

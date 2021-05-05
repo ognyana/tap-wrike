@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+      "recurrence_id": {
+        "type": ["null", "integer"]
+      },
+      "recurrence_interval_end_date": {
+        "type": ["null", "string"],
+        "format":"datetime"
+      },
+      "recurrence_interval_start_date": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "recurrence_name": {
+        "type": ["null", "string"]
+      },
+      "recurrence_occurrence_limit": {
+        "type": ["null", "integer"]
+      },
+      "recurrence_schedule_frequency": {
+        "type": ["null", "integer"]
+      },
+      "recurrence_schedule_type": {
+        "type": ["null", "string"]
+      },
+      "recurrence_state": {
+        "type": ["null", "string"]
+      }
+    }
+  }
+  

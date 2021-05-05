@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+      "audit_log_id": {
+        "type": ["null", "integer"]
+      },
+      "audit_log_object_id": {
+        "type": ["null", "integer"]
+      },
+      "audit_log_object_title": {
+        "type": ["null", "string"]
+      },
+      "audit_log_object_type": {
+        "type": ["null", "string"]
+      },
+      "audit_log_operation_change_json": {
+        "type": ["null", "string"]
+      },
+      "audit_log_operation_origin_json": {
+        "type": ["null", "string"]
+      },
+      "audit_log_operation_origin_location_country": {
+        "type": ["null", "string"]
+      },
+      "audit_log_operation_origin_location_stat": {
+        "type": ["null", "string"]
+      },
+      "audit_log_operation_origin_user_time_zone": {
+        "type": ["null", "string"]
+      },
+      "audit_log_operation_time": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "audit_log_operation_type": {
+        "type": ["null", "string"]
+      },
+      "operator_user_id": {
+        "type": ["null", "integer"]
+      }
+    }
+  }
+  

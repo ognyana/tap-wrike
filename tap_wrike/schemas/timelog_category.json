@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+      "timelog_category_id": {
+        "type": ["null", "integer"]
+      },
+      "timelog_category_name": {
+        "type": ["null", "string"]
+      },
+      "timelog_category_order": {
+        "type": ["null", "integer"]
+      },
+      "when_added": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "when_removed": {
+        "type": ["null", "string"],
+        "format": "datetime"
+      },
+      "workflow_id": {
+        "type": ["null", "integer"]
+      }
+    }
+  }
+  

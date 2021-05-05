@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+      "work_comment_id": {
+        "type": ["null", "integer"]
+      },
+      "work_comment_text": {
+        "type": ["null", "string"]
+      }
+    }
+  }
+  
