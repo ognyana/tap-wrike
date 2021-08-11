@@ -13,8 +13,7 @@ setup(
     install_requires=[
         'singer-python',
         'requests',
-        'backoff',
-        'google-cloud-bigquery'
+        'backoff'
    ],
     entry_points='''
        [console_scripts]

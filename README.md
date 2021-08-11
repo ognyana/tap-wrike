@@ -20,9 +20,7 @@ Author: Ognyana Ivanova
 
     ```json
     { 
-       "access_token": "WRIKE_ACCESS_TOKEN",
-       "bq_project": "WRIKE_BQ_PROJECT",
-       "bq_dataset": "WRIKE_BQ_DATASET" 
+       "access_token": "WRIKE_ACCESS_TOKEN"
     }
     ```
 

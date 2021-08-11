@@ -9,12 +9,11 @@ from singer.schema import Schema
 import csv
 import codecs
 from datetime import datetime
-from google.cloud import bigquery
 
 
 LOGGER = singer.get_logger()
 SESSION = requests.Session()
-REQUIRED_CONFIG_KEYS = ["access_token", "bq_project", "bq_dataset"]
+REQUIRED_CONFIG_KEYS = ["access_token"]
 BASE_API_URL = "https://www.wrike.com/api/v4/"
 CONFIG = {}
 STATE = {}
@@ -86,7 +85,6 @@ def sync_csv_data(schema_name):
     item = list(filter(lambda resource: resource['name'] == schema_name, resources))
     item_csv_url = item[0]['url']
 
-    bq_delete_table(schema_name)
     schema = load_schema(schema_name)
     singer.write_schema(schema_name, schema, ["id"])
 
@@ -98,17 +96,6 @@ def sync_csv_data(schema_name):
             item = transformer.transform(row, schema)
             singer.write_record(schema_name, item, time_extracted=time_extracted)
 
-def bq_delete_table(schema_name):
-    table_id = f"{CONFIG.get('bq_project')}.{CONFIG.get('bq_dataset')}.{schema_name}"
-
-    # Construct a BigQuery client object.
-    client = bigquery.Client()
-
-    # If the table does not exist, delete_table raises
-    # google.api_core.exceptions.NotFound unless not_found_ok is True.
-    client.delete_table(table_id, not_found_ok=True)  # Make an API request.
-
-    LOGGER.info("Deleted table '{}'.".format(table_id))
 
 def sync(catalog):
     """ Sync data from tap source """
