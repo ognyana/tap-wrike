@@ -20,7 +20,8 @@ Author: Ognyana Ivanova
 
     ```json
     { 
-       "access_token": "WRIKE_ACCESS_TOKEN"
+       "accessToken": "WRIKE_ACCESS_TOKEN",
+       "baseUrl": "WRIKE_BASE_URL"
     }
     ```
 

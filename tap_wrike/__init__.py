@@ -13,14 +13,13 @@ from datetime import datetime
 
 LOGGER = singer.get_logger()
 SESSION = requests.Session()
-REQUIRED_CONFIG_KEYS = ["access_token"]
-BASE_API_URL = "https://www.wrike.com/api/v4/"
+REQUIRED_CONFIG_KEYS = ["accessToken", "baseUrl"]
 CONFIG = {}
 STATE = {}
 
 
 def get_access_token():
-    return CONFIG.get('access_token')
+    return CONFIG.get('accessToken')
 
 
 def get_abs_path(path):
@@ -44,7 +43,7 @@ def load_schemas():
 
 def get_url(endpoint):
     """ Get endpoint URL """
-    return BASE_API_URL + endpoint
+    return CONFIG.get('baseUrl') + endpoint
 
 
 @backoff.on_exception(
