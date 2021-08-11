@@ -11,9 +11,10 @@ setup(
     classifiers=['Programming Language :: Python :: 3 :: Only'],
     py_modules=['tap_wrike'],
     install_requires=[
-       "singer-python",
-       'requests',
-       'backoff'
+        'singer-python',
+        'requests',
+        'backoff',
+        'google-cloud-bigquery'
    ],
     entry_points='''
        [console_scripts]
